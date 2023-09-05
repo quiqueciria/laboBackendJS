@@ -243,28 +243,18 @@ const data = [
   },
 ];
 
-//-------- LE ESCRIBI A SANTI PARA QUE ME AYUDARÁ. PENDIENTE DE LA SOLUCIÓN O LA AYUDA.
+const filterByYear = (year) => {
+  const filteredData = data.filter((anio) => anio.year === year);
+  const sortedData = filteredData.sort((a, b) => b.ranking - a.ranking);
+  const topThree = sortedData.slice(0, 3);
+  const onlyNames = topThree.map((anio) => anio.name);
+  return onlyNames;
+};
 
-const filterByYear = data.filter((anio) => {
-  return filterByYear(anio.year);
-});
-// const sortedData = filterByYear.sort((a, b) => b.ranking - a.ranking);
-// const topThree = sortedData.slice(0, 3);
+console.log(filterByYear(1998));
 console.log(filterByYear(1999));
-
-// console.log(winnerByYear(data, 1998)); // [ 'Douglass', 'Randy', 'Monroe' ]
-// console.log(winnerByYear(data, 1999)); // [ 'Graciela', 'Ervin', 'Maxie' ]
-// console.log(winnerByYear(data, 2000)); // [ 'Lettie', 'Eddy', 'Emilee' ]
-// console.log(winnerByYear(data, 2001)); // [ 'Dino', 'Sam', 'Eleanora' ]
-// console.log(winnerByYear(data, 2002)); // [ 'Sean', 'Lang', 'Coleen' ]
-// console.log(winnerByYear(data, 2003)); // [ 'Brianna', 'Francene', 'Everett' ]
-// console.log(winnerByYear(data, 2004)); // []
-
-// ESTA SOLUCIÓN NO CREO QUE SEA LA ADECUADA PORQUE HABRÍA
-// QUE REPETIRLA POR AÑO, MEJOR UNA OPCIÓN QUE SEA POR DEFECTO
-// Y SOLO SE LE PASE LA DATA Y EL AÑO
-
-// const filterByYear = data.filter((anio) => anio.year === 1998);
-// const sortedData = filterByYear.sort((a, b) => b.ranking - a.ranking);
-// const topThree = sortedData.slice(0, 3);
-// console.log(topThree);
+console.log(filterByYear(2000));
+console.log(filterByYear(2001));
+console.log(filterByYear(2002));
+console.log(filterByYear(2003));
+console.log(filterByYear(2004));

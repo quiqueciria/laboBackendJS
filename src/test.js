@@ -1,19 +1,61 @@
-// TESTS
+const collection = [
+  {
+    id: "f0b6930c-331a-43e1-80db-e6c46ed552aa",
+    nationality: "Barbadians",
+    language: "English",
+    campo: "Madrid",
+    barrio: "Ciudad Jardín",
+  },
+  {
+    id: "3e690823-fc74-4376-999a-501e5f9ae4be",
+    nationality: "Congolese",
+    language: "German",
+    campo: "Segovia",
+    barrio: "Arganzuela",
+  },
+  {
+    id: "9edd87d6-2f4f-4701-8ec4-272a361dbfe9",
+    nationality: "Libyans",
+    language: "Tagalog",
+    campo: "Sevilla",
+    barrio: "Usera",
+  },
+];
 
-const data = `id,name,surname,gender,email,picture
-15519533,Raul,Flores,male,raul.flores@example.com,https://randomuser.me/api/portraits/men/42.jpg
-82739790,Alvaro,Alvarez,male,alvaro.alvarez@example.com,https://randomuser.me/api/portraits/men/48.jpg`;
+const newObjects = collection.reduce((acc, obj) => {
+  acc[obj.id] = {
+    nationality: obj.nationality,
+    language: obj.language,
+    campo: obj.campo,
+    barrio: obj.barrio,
+  };
+  return acc;
+}, {});
 
-const rows = data.split("\n");
+console.log(newObjects);
 
-const headers = rows[0].split(",");
+// const newCollection = collection.reduce((acc, obj) => {
+//   acc[obj.id] = {
+//     nationality: obj.nationality,
+//     languaje: obj.language,
+//     capital: obj.national_sport,
+//     flag: obj.flag,
+//   };
+//   return acc;
+// }, {});
 
-const objects = rows.slice(1).map((row) => {
-  const values = row.split(",");
-  return headers.reduce((obj, header, i) => {
-    obj[header] = values[i];
-    return obj;
-  }, {});
-});
+// console.log(newCollection);
 
-console.log(objects);
+/*
+Resultado:
+{
+  "f0b6930c-331a-43e1-80db-e6c46ed552aa": {
+    nationality: "Barbadians",
+    language: "English",
+  },
+  "3e690823-fc74-4376-999a-501e5f9ae4be": {
+    nationality: "Congolese",
+    language: "German",
+  },
+}
+*/
