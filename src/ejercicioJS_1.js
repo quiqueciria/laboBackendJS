@@ -27,6 +27,7 @@ const objects = rows.slice(1).map((row) => {
 console.log(objects);
 
 // --------- EXTRA -------------------------------
+
 // --------- EXTRA - cada usuario tendrá sólo `id` y `name`
 
 // const rows = data.split("\n");
